@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        web-allow-others: false #true false
+  shell:
+    interactive:
+      enabled: true #true false
+
+  jpa:
+#    generate-ddl: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true

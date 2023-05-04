@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of all books</title>
+</head>
+<body>
+<h1>Books</h1>
+<table class="books">
+    <thead>
+    <tr>ID</tr>
+    <tr>Name</tr>
+    <tr>Action</tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.getId()}">1</td>
+        <td th:text="${book.getName()}">Тихий дон</td>
+        <td><a th:href="'/book/' + ${book.getId()}" href="/">Edit</a></td>
+        <td><a th:href="'/book/' + ${book.getId() + '/delete'}" href="/">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

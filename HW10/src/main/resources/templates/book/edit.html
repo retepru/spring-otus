@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit book</title>
+</head>
+<body>
+    <h1>Edit book</h1>
+    <form id="edit-form" th:action="@{/book/{id}(id=*{getId()})}" action="/edit/1" th:object="${bookDto}" th:method="PATCH">
+        <div>
+            <label for="name-input">Name:</label> <input id="name-input" type="text" th:value="*{getName()}" value="Название книги" name="name">
+<!--            <input type="hidden" name="id" th:value="*{getId()}" value="0"/>-->
+        </div>
+        <div>
+            <label for="author-input">Author:</label>
+            <select id="author-input" name="authorId">
+                <option th:each="author : ${authors}" th:value="${author.getId()}" th:text="${author.getName()}"
+                        th:selected="${author.getId()} == *{getAuthorId()}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="style-input">Style:</label>
+            <select id="style-input" name="styleId">
+                <option th:each="style : ${styles}" th:value="${style.getId()}" th:text="${style.getName()}"
+                        th:selected="${style.getId()} == *{getStyleId()}"></option>
+            </select>
+        </div>
+        <button>Сохранить</button>
+    </form>
+</body>
+</html>

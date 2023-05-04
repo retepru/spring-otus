@@ -1,0 +1,9 @@
+spring:
+  messages:
+    basename: "i18n/messages"
+    encoding: "UTF-8"
+
+application:
+  locale: "en"
+  #  locale: "ru_RU"
+  fileName: "question_${application.locale}.csv"

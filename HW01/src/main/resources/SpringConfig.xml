@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="consoleOutputController" class="ru.otus.spring.io.ConsoleOutImpl" />
+    <bean id="questionsRead" class="ru.otus.spring.dao.QuestionsReadCsv">
+        <constructor-arg name="fileName" value="question.csv"/>
+    </bean>
+    <bean id="questionsService" class="ru.otus.spring.service.QuestionsServiceImpl">
+        <constructor-arg name="consoleOut" ref="consoleOutputController"/>
+        <constructor-arg name="questionsRead" ref="questionsRead"/>
+    </bean>
+</beans>

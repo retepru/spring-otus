@@ -1,0 +1,18 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: books
+      port: 27017
+      host: localhost
+#      uri: mongodb://localhost:27017
+
+  shell:
+    interactive:
+      enabled: true #true false
+
+mongock:
+  #  runner-type: "ApplicationRunner" # default
+  runner-type: "InitializingBean"
+  change-logs-scan-package:
+    - ru.otus.hw6.mongock.changelog
